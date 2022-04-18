@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\fornecedoresController;
+use App\Http\Controllers\produtosController;
 
 Route::get('/laravel', function () {
     return view('welcome');
@@ -29,3 +30,7 @@ Route::get('/fornecedores/alterar/{id}', [fornecedoresController::class, 'altera
 Route::post('/fornecedores/alterar/', [fornecedoresController::class, 'salvar'])->name('fornecedores_salvar');
 
 Route::get('/fornecedores/excluir/{id}', [fornecedoresController::class, 'excluir'])->name('fornecedores_excluir');
+
+Route::get('/produtos/novo', 
+        [produtosController::class, 'cadastro_novo']);
+Route::post('/produtos/novo', [produtosController::class, 'novo'])->name('produtos_novo');
